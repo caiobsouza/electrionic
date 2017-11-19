@@ -10,14 +10,13 @@
   },
   "private": true,
   "scripts": {
-    "start": "concurrently \"ionic serve --no-open\" \"npm run wait\"",
+    "start": "concurrently \"ionic serve --no-open\" \"wait-on http://localhost:8100/ -d 11111 && electron .\"",
     "clean": "ionic-app-scripts clean",
     "build": "ionic-app-scripts build",
     "lint": "ionic-app-scripts lint",
     "ionic:build": "ionic-app-scripts build",
     "ionic:serve": "ionic-app-scripts serve",
-    "electron": "electron .",
-    "wait": "node electron/wait"
+    "electron": "electron ."
   },
   "dependencies": {
     "@angular/common": "5.0.1",
@@ -44,7 +43,8 @@
     "@ionic/app-scripts": "3.1.2",
     "concurrently": "^3.5.0",
     "dotenv": "^4.0.0",
-    "typescript": "2.4.2"
+    "typescript": "2.4.2",
+    "wait-on": "^2.0.2"
   },
   "description": "An Ionic project"
 }
